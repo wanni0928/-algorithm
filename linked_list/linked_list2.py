@@ -67,6 +67,7 @@ for data in range(1, 10):
     linkedList.add(data)
 
 # linkedList.delete(7)
-linkedList.search(99)
+
+# linkedList.search(99)
 
 # linkedList.desc()
