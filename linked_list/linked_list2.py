@@ -46,12 +46,27 @@ class NodeMgmt:
                 else:
                     node = node.next
 
+    def search(self, data):
+        node = self.head
+        if self.head.data == data:
+            print(node.data)
+            return
+        while node.next:
+            if node.next.data == data:
+                print(node.next.data)
+                return
+            else:
+                if node.next != None:
+                    node = node.next
+        print('no such thing in this data')
+        return
 
 linkedList = NodeMgmt(0)
 
 for data in range(1, 10):
     linkedList.add(data)
 
-linkedList.delete(7)
+# linkedList.delete(7)
+linkedList.search(99)
 
-linkedList.desc()
+# linkedList.desc()
