@@ -42,11 +42,16 @@ class NodeMgmt:
                     temp = node.next
                     node.next = node.next.next
                     del temp
+                    return
+                else:
+                    node = node.next
 
 
 linkedList = NodeMgmt(0)
 
 for data in range(1, 10):
     linkedList.add(data)
+
+linkedList.delete(7)
 
 linkedList.desc()
