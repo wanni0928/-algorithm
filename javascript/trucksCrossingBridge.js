@@ -1,31 +1,34 @@
-const trucks = [7,4,5,6];
-const trucks2 = [10];
-
 function solution(bridge_length, weight, truck_weights) {
-    var answer = 0;
-    let trucks = truck_weights.length > 1 ? truck_weights.reverse() : truck_weights;
-    let onBridge = [];
-    let afterBridge = [];
-    while(true){
-        if(truck_weights.length != 0){
-            if(onBridge.reduce((accumulator, currentValue) => accumulator + currentValue) < bridge_length){
-                
+    let times = [];
+    let on_bridge = [];
+    let truck = [];
+    let seconds = 0;
+    let finish_times = 0;
+    let current_total_weight = 0;
+    
+    while(truck_weights.length !== 0){
+        // console.log(truck_weights);
+        if(current_total_weight <= weight){
+            times.push(++seconds);
+            on_bridge.push(truck_weights.shift());
+            current_total_weight += on_bridge[on_bridge.length - 1];
+            if(seconds - times[times.length - 1] === bridge_length){
+                current_total_weight -= on_bridge[on_bridge.length - 1];
+                if(on_bridge > 0){on_bridge.pop()};
+                times.push(++seconds);
             }
-            onBridge.push(trucks.pop());
-            // console.log(onBridge.shift());
-            
         }else{
-            console.log("end")
-            break;
+            times.push(++seconds);
         }
+        
+        if(seconds - times[times.length - 1] === bridge_length){
+            current_total_weight -= on_bridge[on_bridge.length - 1];
+            if(on_bridge > 0){on_bridge.pop()};
+            times.push(++seconds);
+        }
+
     }
-    console.log(onBridge);
-    return answer;
+    // console.log(times)
+    finish_times = bridge_length + times[times.length - 1];
+    return finish_times;
 }
-
-function init() {
-    solution(2, 10, trucks);
-    solution(2, 10, trucks2);
-}
-
-init();
