@@ -17,7 +17,7 @@ function intersection(arrayA, arrayB){
     return answer;
 }
 
-function complements(arrayA, arrayB){
+function complements(arrayA, arrayB) {
     let answer = [];
     let setA = getSet(arrayA);
     let setB = getSet(arrayB);
@@ -28,7 +28,7 @@ function complements(arrayA, arrayB){
     return answer;
 }
 
-function getSet(arr){
+function getSet(arr) {
     let answer = [];    
     answer = arr.filter(function(item, index) {
         return arr.indexOf(item) === index;
@@ -36,7 +36,7 @@ function getSet(arr){
     return answer;
 }
 
-function init(){
+function init() {
     console.log("setA :", getSet(arrayA));
     console.log("setB :", getSet(arrayB));
     console.log("setA - setB :", complements(arrayA, arrayB));
