@@ -73,6 +73,35 @@ class NodeMgmt:
                 self.parent.left = self.current_node.left
             else:
                 self.parent.right = self.current_node.right
+        # 3. 삭제할 Node가 Child Node를 두 개 가지고 있을 경우
+        if self.current_node.left != None and self.current_node.right != None:
+            if value < self.parent.value:
+                self.change_node = self.current_node.right
+                self.change_node_parent = self.current_node.right
+                while self.change_node.left != None:
+                    self.change_node_parent = self.change_node
+                    self.change_node = self.change_node.left
+                self.change_node_parent.left = None
+                if self.change_node.right != None:
+                    self.change_node_parent.left = self.change_node.right
+                else:
+                    self.change_node_parent.left = None
+                self.parent.left = self.change_node
+                self.change_node.right = self.current_node.right
+                self.change_node.left = self.change_node.left
+        else:
+            self.change_node = self.current_node.right
+            self.change_node_parent = self.current_node.right
+            while self.change_node.left != None:
+                self.change_node_parent = self.change_node
+                self.change_node = self.change_node.left
+            if  self.change_node.right != None:
+                self.change_node_parent.left = self.change_node.right
+            else:
+                self.change_node_parent.left = None
+            self.parent.right = self.change_node
+            self.change_node.left = self.current_node.left
+            self.change_node.right = self.current_node.right
 head = Node(1)
 BST = NodeMgmt(head)
 BST.insert(2)
