@@ -4,6 +4,7 @@ class Node:
         self.left = None
         self.right = None
 
+        
 class NodeMgmt:
     def __init__(self, head):
         self.head = head
@@ -27,17 +28,17 @@ class NodeMgmt:
     def search(self, value):
         self.current_node = self.head
         while self.current_node:
-            if self.current_node:
-                if self.current_node.value == value:
-                    return True
-                elif value < self.current_node.value:
-                    self.current_node = self.current_node.left
-                else:
-                    self.current_node = self.current_node.right
-        return False
-
+            if self.current_node.value == value:
+                return True
+            elif value < self.current_node.value:
+                self.current_node = self.current_node.left
+            else:
+                self.current_node = self.current_node.right
+        return False        
+    
     def delete(self, value):
-        searched = False # 해당 노드를 찾았는지 못 찾았는지
+        # 삭제할 노드 탐색
+        searched = False
         self.current_node = self.head
         self.parent = self.head
         while self.current_node:
@@ -45,43 +46,43 @@ class NodeMgmt:
                 searched = True
                 break
             elif value < self.current_node.value:
+                self.parent = self.current_node
                 self.current_node = self.current_node.left
             else:
                 self.parent = self.current_node
                 self.current_node = self.current_node.right
+
         if searched == False:
-            return False
-        ### 이후부터 Case
-        # self.current_node 가 삭제할 Node.self.parent의 Parent Node인상태
-        # 1. Leaf Node 삭제(삭제할 노드의 자식 노드가 없을때.)
-        if self.current_node.left == None and self.current_node.right == None:
+            return False    
+
+        # case1
+        if  self.current_node.left == None and self.current_node.right == None:
             if value < self.parent.value:
                 self.parent.left = None
             else:
                 self.parent.right = None
-            del self.current_node
-        # 2. 삭제할 Node가 child Node 한개를 갖고 있을 때.
-        #       그 child Node가 왼쪽에 있을 때.
-        if self.current_node.left != None and self.current_node.right == None:
+        
+        # case2
+        elif self.current_node.left != None and self.current_node.right == None:
             if value < self.parent.value:
                 self.parent.left = self.current_node.left
             else:
                 self.parent.right = self.current_node.left
-        #       그 child Node가 오른쪽에 있을 때.
         elif self.current_node.left == None and self.current_node.right != None:
             if value < self.parent.value:
-                self.parent.left = self.current_node.left
+                self.parent.left = self.current_node.right
             else:
-                self.parent.right = self.current_node.right
-        # 3. 삭제할 Node가 Child Node를 두 개 가지고 있을 경우
-        if self.current_node.left != None and self.current_node.right != None:
+                self.parent.right = self.current_node.right        
+        
+        # case 3
+        elif self.current_node.left != None and self.current_node.right != None:
+            # case3-1
             if value < self.parent.value:
                 self.change_node = self.current_node.right
                 self.change_node_parent = self.current_node.right
                 while self.change_node.left != None:
                     self.change_node_parent = self.change_node
                     self.change_node = self.change_node.left
-                self.change_node_parent.left = None
                 if self.change_node.right != None:
                     self.change_node_parent.left = self.change_node.right
                 else:
@@ -89,24 +90,19 @@ class NodeMgmt:
                 self.parent.left = self.change_node
                 self.change_node.right = self.current_node.right
                 self.change_node.left = self.change_node.left
-        else:
-            self.change_node = self.current_node.right
-            self.change_node_parent = self.current_node.right
-            while self.change_node.left != None:
-                self.change_node_parent = self.change_node
-                self.change_node = self.change_node.left
-            if  self.change_node.right != None:
-                self.change_node_parent.left = self.change_node.right
+            # case 3-2
             else:
-                self.change_node_parent.left = None
-            self.parent.right = self.change_node
-            self.change_node.left = self.current_node.left
-            self.change_node.right = self.current_node.right
-head = Node(1)
-BST = NodeMgmt(head)
-BST.insert(2)
-BST.insert(0)
-BST.insert(4)
-BST.insert(8)
+                self.change_node = self.current_node.right
+                self.change_node_parent = self.current_node.right
+                while self.change_node.left != None:
+                    self.change_node_parent = self.change_node
+                    self.change_node = self.change_node.left
+                if self.change_node.right != None:
+                    self.change_node_parent.left = self.change_node.right
+                else:
+                    self.change_node_parent.left = None
+                self.parent.right = self.change_node
+                self.change_node.right = self.current_node.right
+                self.change_node.left = self.current_node.left
 
-print(BST.search(9))
+        return True
