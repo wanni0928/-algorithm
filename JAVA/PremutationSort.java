@@ -10,7 +10,8 @@ public class PremutationSort {
 			num[i] = String.valueOf(numbers[i]);
 		}
 
-		Arrays.sort(num, new Mycomp());
+        Arrays.sort(num, new Mycomp());
+        
 		if (num[0].equals("0")) {
 			answer += "0";
 		} else {
