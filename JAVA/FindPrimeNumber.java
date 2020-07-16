@@ -1,8 +1,6 @@
-package algorithm;
-
 import java.util.HashMap;
 
-public class findSosu {
+public class FindPrimeNumber {
 	public int solution(String numbers) {
 
 		int answer = 0;
