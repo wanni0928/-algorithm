@@ -9,7 +9,6 @@ class Solution {
             int min = (int)Math.min(citations[i], citations.length - i);
             if(max < min) max = min;
         }
-
         return max;
     }
 }
