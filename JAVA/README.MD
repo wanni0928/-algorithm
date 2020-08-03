@@ -1,6 +1,6 @@
 # Algorithm JAVA
 
-* 전화번호 목록 [소스 코드](https://github.com/wanni0928/-algorithm/blob/master/JAVA/PhoneNumber_recap3.java)
+* ## 전화번호 목록 [소스 코드](https://github.com/wanni0928/-algorithm/blob/master/JAVA/PhoneNumber_recap3.java)
     1. 문제 설명
         전화번호부에 적힌 전화번호 중, 한 번호가 다른 번호의 접두어인 경우가 있는지 확인하려 합니다.
         전화번호가 다음과 같을 경우, 구조대 전화번호는 영석이의 전화번호의 접두사입니다.
@@ -45,7 +45,7 @@
 
 
 
-* 완주하지 못한 선수 [소스 코드](https://github.com/wanni0928/-algorithm/blob/master/JAVA/marathon_fine_answer.java)
+* ## 완주하지 못한 선수 [소스 코드](https://github.com/wanni0928/-algorithm/blob/master/JAVA/marathon_fine_answer.java)
     1. 문제 설명
         수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.
 
