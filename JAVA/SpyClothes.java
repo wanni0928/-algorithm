@@ -9,7 +9,6 @@ public class SpyClothes {
     public int solution(String[][] clothes) {
         int answer = 1;
         HashMap<String,Integer> hm = new HashMap<>();
-        int[] a = null;
         for(int i = 0; i < clothes.length; i++){
             String name = clothes[i][0];
             String type = clothes[i][1];
