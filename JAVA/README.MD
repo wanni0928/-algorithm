@@ -45,7 +45,7 @@
 
 
 
-* ## 완주하지 못한 선수 [소스 코드](https://github.com/wanni0928/-algorithm/blob/master/JAVA/marathon_fine_answer.java)
+* ## 완주하지 못한 선수 [소스 코드](https://github.com/wanni0928/-algorithm/blob/master/JAVA/marathon_myanswer.java)
     1. 문제 설명
         수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.
 
