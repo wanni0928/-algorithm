@@ -131,9 +131,9 @@
         
         * 정렬된 Song 리스트를 for문으로 돌려 장르마다, 2개의 인덱스만 가져와서, answer 배열에 담아서 리턴한다. 
 
-4. 주의사항
-    * 다른 사람의 풀이를 보면, 간혹 해쉬앱을 바로 for문에 적용하여, 검색하는 풀이를 볼 수 있는데, 코드의 길이와 가독성을 보면 언듯 더 편리해보이지만, EntrySet의 getValue()가 HashMap의 get() 보다 사용하는 함수의 갯수가 더 적고, 실행 속도도 빠르기 때문에, 해쉬에서 값이나 키를 출력할 때는 EntrySet을 사용하는 것이 결과적으로는 더 효율적이다.
-
-    * [출처 : https://stackoverflow.com/questions/3870064/performance-considerations-for-keyset-and-entryset-of-map](https://stackoverflow.com/questions/3870064/performance-considerations-for-keyset-and-entryset-of-map)
-
-출처 [https://programmers.co.kr/learn/courses/30/lessons/42576?language=java](https://programmers.co.kr/learn/courses/30/lessons/42576?language=java)
+    5. 참고
+        * [HashMap vs ArrayList 출처 : https://850530.tistory.com/74](https://850530.tistory.com/74)
+        * [Comparable 출처 : https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html](https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html)
+        * [Comparable과 Comparator 정렬 https://jeong-pro.tistory.com/173](https://jeong-pro.tistory.com/173)
+        
+문제출처 [https://programmers.co.kr/learn/courses/30/lessons/42579](https://programmers.co.kr/learn/courses/30/lessons/42579)
