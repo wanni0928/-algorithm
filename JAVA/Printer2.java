@@ -1,22 +1,19 @@
 package com.programmers.algorithm;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class Printer2 {
     public int solution(int[] priorities, int location) {
-        int answer = 0;
-        PriorityQueue<Integer> works = new PriorityQueue<>();
+        int answer = 1;
+        PriorityQueue<Integer> works = new PriorityQueue<>(Collections.reverseOrder());
         for (int prioty : priorities){
             works.add(prioty);
         }
         System.out.println(works);
+        System.out.println(Arrays.toString(priorities));
         while(!works.isEmpty()){
-//            System.out.println(works.poll());
             for(int i = 0; i < priorities.length; i++){
-                if(priorities[i] == (int) works.peek()) {
+                if(priorities[i] == (int) works.peek()){
                     if(i == location){
                         return answer;
                     }
@@ -25,7 +22,6 @@ public class Printer2 {
                 }
             }
         }
-
         return answer;
     }
 
@@ -35,10 +31,10 @@ public class Printer2 {
 //        int location = 2;
 //        int[] priorities = {3, 3, 4, 2};
 //        int location = 3;
-//        int[] priorities = {1, 1, 9, 1, 1, 1};
-//        int location = 0;
-        int[] priorities = {2, 1, 2, 1, 3, 4};
-        int location = 3;
+        int[] priorities = {1, 1, 9, 1, 1, 1};
+        int location = 0;
+//        int[] priorities = {2, 1, 2, 1, 3, 4};
+//        int location = 3;
 //        int[] priorities = {5,4,3,2,1};
 //        int location = 3;
 //        int[] priorities = {9, 9, 9, 9, 9};
