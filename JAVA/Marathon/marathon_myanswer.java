@@ -26,7 +26,7 @@ public class Solution {
 
         while(hmIterator.hasNext()){
             Map.Entry map = (Map.Entry) hmIterator.next();
-            if(map.getValue().equals(1)){
+            if(map.getValue().equals(1)) {
                 answer = map.getKey().toString();
             }
         }
