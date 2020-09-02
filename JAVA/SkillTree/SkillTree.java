@@ -6,8 +6,6 @@ public class SkillTree {
         String sample = "";
         for(String skill_tree : skill_trees){
             sample = skill_tree.replaceAll("[^"+ skill + "]", "");
-            System.out.println(sample);
-
             if(skill.indexOf(sample) == 0) answer++;
         }
         return answer;
