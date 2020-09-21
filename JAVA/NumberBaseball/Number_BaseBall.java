@@ -75,7 +75,7 @@ class Solution {
                     }
                 }
                 if(!check){
-                    System.out.println(i);
+                    // System.out.println(i);
                     answer++;
                 }
             }
