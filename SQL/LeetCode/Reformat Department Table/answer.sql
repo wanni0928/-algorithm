@@ -14,4 +14,4 @@ select id,
     sum(case when month = 'Nov' then revenue else null end) as Nov_Revenue,
     sum(case when month = 'Dec' then revenue else null end) as Dec_Revenue
 from department
-group by id
+group by id;
