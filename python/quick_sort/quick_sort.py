@@ -7,7 +7,7 @@ def qsort(data):
     pivot = data[0]
 
     for index in range(1, len(data)):
-        if pivot > data[index]:
+        if pivot < data[index]:
             left.append(data[index])
         else:
             right.append(data[index])
